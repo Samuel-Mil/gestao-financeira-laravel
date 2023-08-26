@@ -20,4 +20,5 @@ Route::get('/', function () {
 });
 
 Route::get("/login", [LoginController::class, "index"])->name("login");
-Route::get("/dashboard", [HomeController::class, "index"])->name("dashboard");
+Route::get("/dashboard/home", [HomeController::class, "index"])->name("dashboard");
+Route::get("/dashboard/register_bank_account", [HomeController::class, "register"])->name("register");
