@@ -168,3 +168,20 @@
 .input_box input[type=submit]:hover{
     background-color: #222c30;
 }
+
+.page_list_wrapper{
+    width: 100%;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.page_list_single{
+    width: 300px;
+    height: 350px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    padding: 10px;
+}

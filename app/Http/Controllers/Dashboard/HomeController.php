@@ -16,4 +16,9 @@ class HomeController extends Controller
     {
         return view("pages.dashboard.registerBankAccount");
     }
+    
+    public function show()
+    {
+        return view("pages.dashboard.showBankAccounts");
+    }
 }
