@@ -21,4 +21,8 @@ class HomeController extends Controller
     {
         return view("pages.dashboard.showBankAccounts");
     }
+
+    public function inOut(){
+        return view("pages.dashboard.inOutTransations");
+    }
 }

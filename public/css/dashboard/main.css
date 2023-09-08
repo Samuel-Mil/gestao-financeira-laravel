@@ -185,3 +185,37 @@
     border: 2px solid #ccc;
     padding: 10px;
 }
+
+.dash_table{
+    width: 100%;
+}
+
+.dash_table_header{
+    width: 100%;
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2F3D42;
+    color: white;
+}
+
+.dash_table_column{
+    width: 100%;
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #2F3D42;
+    color: #444;
+}
+
+.tipo_entrada{
+    color: #00cc00;
+    font-weight: bold;
+}
+
+.tipo_saida{
+    color: #ed1c09;
+    font-weight: bold;
+}
