@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Autenticação</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dashboard/main.css">
     <script defer src="https://kit.fontawesome.com/708b4765cf.js" crossorigin="anonymous"></script>
@@ -21,7 +21,7 @@
         <main class="sidebar_blocks">
             <ul>
                 <h3><i class="fa-solid fa-building-columns"></i> Contas bancárias</h3>
-                <li><a href="{{route('register')}}">Registrar conta</a></li>
+                <li><a href="{{route('ceate-bank-account')}}">Registrar conta</a></li>
                 <li><a href="#">Gerenciar contas</a></li>
                 <h3><i class="fa-solid fa-piggy-bank"></i> Fluxo de Caixa</h3>
                 <li><a href="#">Entradas e saídas</a></li>
@@ -38,7 +38,7 @@
                 <li><a href="#">Gerar relatório</a></li>
                 <li><a href="#">Análide de dados</a></li>
                 <h3><i class="fa-solid fa-users"></i> Usuarios</h3>
-                <li><a href="#">Criar usuario</a></li>
+                <li><a href="{{route('register')}}">Criar usuario</a></li>
                 <li><a href="#">Gerenciar usuarios</a></li>
             </ul>    
         </main>

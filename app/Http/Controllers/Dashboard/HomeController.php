@@ -11,11 +11,6 @@ class HomeController extends Controller
     {
         return view("pages.dashboard.home");
     }
-
-    public function register()
-    {
-        return view("pages.dashboard.registerBankAccount");
-    }
     
     public function show()
     {
