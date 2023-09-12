@@ -10,79 +10,20 @@
             <span>Conta de Saida:</span>
             <span>valor:</span>
         </div>
-        <div class="dash_table_column">
-            <span class="tipo_entrada">Entrada</span>
-            <span>18289132308173</span>
-            <span>18289132308173</span>
-            <span>R$2.300</span>
-        </div>
-        <div class="dash_table_column">
-            <span class="tipo_saida">Saida</span>
-            <span>18289132308173</span>
-            <span>18289132308173</span>
-            <span>R$2.300</span>
-        </div>
-        <div class="dash_table_column">
-            <span class="tipo_entrada">Entrada</span>
-            <span>18289132308173</span>
-            <span>18289132308173</span>
-            <span>R$2.300</span>
-        </div>
-        <div class="dash_table_column">
-            <span class="tipo_entrada">Entrada</span>
-            <span>18289132308173</span>
-            <span>18289132308173</span>
-            <span>R$2.300</span>
-        </div>
-        <div class="dash_table_column">
-            <span class="tipo_saida">Saida</span>
-            <span>18289132308173</span>
-            <span>18289132308173</span>
-            <span>R$2.300</span>
-        </div>
-        <div class="dash_table_column">
-            <span class="tipo_entrada">Entrada</span>
-            <span>18289132308173</span>
-            <span>18289132308173</span>
-            <span>R$2.300</span>
-        </div>
-        </div>
-        <div class="dash_table_column">
-            <span class="tipo_entrada">Entrada</span>
-            <span>18289132308173</span>
-            <span>18289132308173</span>
-            <span>R$2.300</span>
-        </div>
-        <div class="dash_table_column">
-            <span class="tipo_saida">Saida</span>
-            <span>18289132308173</span>
-            <span>18289132308173</span>
-            <span>R$2.300</span>
-        </div>
-        <div class="dash_table_column">
-            <span class="tipo_entrada">Entrada</span>
-            <span>18289132308173</span>
-            <span>18289132308173</span>
-            <span>R$2.300</span>
-        </div>
-        <div class="dash_table_column">
-            <span class="tipo_entrada">Entrada</span>
-            <span>18289132308173</span>
-            <span>18289132308173</span>
-            <span>R$2.300</span>
-        </div>
-        <div class="dash_table_column">
-            <span class="tipo_saida">Saida</span>
-            <span>18289132308173</span>
-            <span>18289132308173</span>
-            <span>R$2.300</span>
-        </div>
-        <div class="dash_table_column">
-            <span class="tipo_entrada">Entrada</span>
-            <span>18289132308173</span>
-            <span>18289132308173</span>
-            <span>R$2.300</span>
-        </div>
+        @foreach ($flows as $flow)
+            <div class="dash_table_column">
+                @php
+                    if($flow['type'] == 1)
+                        echo '<span class="tipo_entrada">Entrada</span>';
+                    else if($flow['type'] == 2)
+                        echo '<span class="tipo_saida">Saida</span>';
+                @endphp
+                
+                <span>{{$entrys['number'] }}</span>
+                <span>{{$outs['number']}}</span>
+                <span>R${{$flow['amount']}}</span>
+            </div>
+        @endforeach
     </div>
 </div>
 @endsection

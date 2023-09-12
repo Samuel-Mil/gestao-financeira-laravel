@@ -11,21 +11,23 @@
 
             <img src="../assets/banner.jpg" alt="">
         </div>
-        <form action="" method="post">
+        <form action="{{route('doLogin')}}" method="post">
+            @csrf
             <h1>Login</h1>
+            
+            @error('login')
+            <div class="box-error">
+                <p>{{$message}}</p>
+            </div>
+            @enderror
             <div class="input_box">
                 <label for="cpf">CPF:</label>
                 <input type="text" id="cpfInput" name="cpf" placeholder="000.000.000-00">
-                @error('cpf')
-                    <p class="input_error">CPF invalido</p>
-                @enderror
+                
             </div>
             <div class="input_box">
                 <label for="password">Senha:</label>
                 <input type="password" name="password" placeholder="*********">
-                @error('cpf')
-                    <p class="input_error">Senha invalida</p>
-                @enderror
             </div>
             <div class="input_box">
                 <input type="submit" value="Entrar">

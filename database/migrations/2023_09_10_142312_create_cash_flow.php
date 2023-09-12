@@ -20,7 +20,6 @@ return new class extends Migration
             
             $table->foreign('type')->references('id')->on('flow_type');
             $table->foreign('entry_account')->references('id')->on('bank_account');
-            $table->foreign('outgoing_account')->references('id')->on('bank_account');
             $table->timestamps();
         });
     }

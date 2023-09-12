@@ -13,6 +13,17 @@
     align-items: center;
 }
 
+.box-error{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+
+    border-radius: 5px;
+    background-color: #ed1c09;
+}
+
+
 .cta{
     width: 500px;
     height: 100%;

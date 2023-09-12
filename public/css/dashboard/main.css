@@ -180,10 +180,45 @@
 
 .page_list_single{
     width: 300px;
-    height: 350px;
+    height: 370px;
     border-radius: 10px;
-    border: 2px solid #ccc;
+    background-color: #2F3D42;
+    border: 3px solid #222c30;
+    color: white;
+    text-align: center;
     padding: 10px;
+}
+
+.page_list_single img{
+    border-radius: 10px;
+    width: 200px;
+    border: 3px solid #222c30;
+}
+
+.page_list_single p{
+    border-bottom: 1px solid #222c30;
+    padding: 10px 0;
+}
+
+.page_list_single .page_list_single_btn_box{
+    width: 100%;
+    margin-top: 50px;
+}
+
+.page_list_single .page_list_single_btn_box a{
+    padding: 5px;
+    text-decoration: none;
+    margin-left: 10px;
+    color: white;
+    border-radius: 3px;
+}
+
+.delete-button{
+    background-color: #ed1c09;
+}
+
+.edit-button{
+    background-color: #dddd00;
 }
 
 .dash_table{
