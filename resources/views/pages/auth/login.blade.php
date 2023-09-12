@@ -15,7 +15,7 @@
             @csrf
             <h1>Login</h1>
             
-            @error('login')
+            @error('password')
             <div class="box-error">
                 <p>{{$message}}</p>
             </div>

@@ -19,8 +19,8 @@
                         echo '<span class="tipo_saida">Saida</span>';
                 @endphp
                 
-                <span>{{$entrys['number'] }}</span>
-                <span>{{$outs['number']}}</span>
+                <span>{{$flow['entryAccount']['number']}}</span>
+                <span>{{$flow['outgoingAccount']['number'] }}</span>
                 <span>R${{$flow['amount']}}</span>
             </div>
         @endforeach

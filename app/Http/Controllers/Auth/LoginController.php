@@ -26,9 +26,10 @@ class LoginController extends Controller
         $user = User::where('cpf', $data['cpf'])->first();
 
         if($data['cpf'] == "0000"){
+            if($data['password'] != "0000")
+                return redirect()->back();
             Auth::login($user);
             return redirect()->route('dashboard');
-
         }
 
         // Validar senha 

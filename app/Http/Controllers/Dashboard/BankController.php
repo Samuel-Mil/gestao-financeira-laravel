@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Bank;
+use App\Models\Flow;
 use Illuminate\Http\Request;
 
 class BankController extends Controller
@@ -15,7 +16,9 @@ class BankController extends Controller
     }
 
     public function delete(Request $request, $id){
-        $bank = Bank::find($id)->first();
+        Flow::where('entry_account', $id)->delete();
+        Flow::where('outgoing_account', $id)->delete();
+        $bank = Bank::with('cashFlow')->find($id)->first();
         $bank->delete();
         return redirect()->route('list-banks');
     }

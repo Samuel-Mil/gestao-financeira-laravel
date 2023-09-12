@@ -30,17 +30,11 @@ class FlowController extends Controller
     }
 
     public function list(Request $request){
-        $flows = Flow::all();
-        foreach($flows as $key => $flow){
-            $entryAcc = Bank::find($flow['entry_account']);
-            $outAcc = Bank::find($flow['outgoing_account']);
-            return view("pages.dashboard.inOutTransations", [
-                'flows' => $flows,
-                'entrys' => $entryAcc,
-                'outs'   => $outAcc
-            ]);
-        }
+        $flows = Flow::with('outgoingAccount', 'entryAccount')->get();
 
-        return view("pages.dashboard.inOutTransations");
+        return view("pages.dashboard.inOutTransations", [
+            'flows' => $flows,
+        ]);
+
     }
 }
