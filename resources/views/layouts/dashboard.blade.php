@@ -12,7 +12,7 @@
 <body>
     <aside class="sidebar">
         <header class="user_box">
-            <img src="{{getenv('APP_URL')}}/assets/profile_pic.png" class="user_image" alt="User profile pic">
+            <img src="{{getenv('APP_URL')}}/img/pics/{{auth()->user()->image}}" class="user_image" alt="User profile pic">
             <div class="user_info">
                 <h2 class="user_name">{{auth()->user()->name}}</h2>
                 <p class="user_role">
@@ -34,21 +34,25 @@
                 <li><a href="{{route('list-banks')}}">Gerenciar contas</a></li>
                 <h3><i class="fa-solid fa-piggy-bank"></i> Fluxo de Caixa</h3>
                 <li><a href="{{route('inOut')}}">Entradas e saídas</a></li>
-                <li><a href="{{route('create-flow')}}">Registrar transação</a></li>
+                @if (auth()->user()->role == 1 || auth()->user()->role == 2)
+                    <li><a href="{{route('create-flow')}}">Registrar transação</a></li>
+                @endif
                 <li><a href="#">Gerar relatório</a></li>
                 <h3><i class="fa-solid fa-money-bill-trend-up"></i> Faturamento e Faturas</h3>
-                <li><a href="#">Emitir fatura</a></li>
-                <li><a href="#">Rastrear faturas</a></li>
-                <li><a href="#">Gerenciar Faturas</a></li>
+                <li><a href="{{route('register-invoice')}}">Emitir fatura</a></li>
+                <li><a href="{{route('track-invoices')}}">Rastrear faturas</a></li>
+                <li><a href="{{route('list-invoices')}}">Gerenciar Faturas</a></li>
                 <h3><i class="fa-solid fa-handshake"></i> Conciliação Bancária</h3>
                 <li><a href="#">Importar extratos</a></li>
                 <li><a href="#">Discrepâncias</a></li>
                 <h3><i class="fa-solid fa-newspaper"></i> Relatórios e análises</h3>
                 <li><a href="#">Gerar relatório</a></li>
                 <li><a href="#">Análide de dados</a></li>
-                <h3><i class="fa-solid fa-users"></i> Usuarios</h3>
-                <li><a href="{{route('register')}}">Criar usuario</a></li>
-                <li><a href="{{route('list-users')}}">Gerenciar usuarios</a></li>
+                @if (auth()->user()->role == 1)
+                    <h3><i class="fa-solid fa-users"></i> Usuarios</h3>
+                    <li><a href="{{route('register')}}">Criar usuario</a></li>
+                    <li><a href="{{route('list-users')}}">Gerenciar usuarios</a></li>
+                @endif
             </ul>    
         </main>
     </aside>

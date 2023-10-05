@@ -1,11 +1,12 @@
 @extends('layouts.dashboard')
 @section('head')
 <script src="{{getenv('APP_URL')}}/js/cpfInputHandler.js" defer></script>
+<script src="{{getenv('APP_URL')}}/js/image_preview.js" defer></script>
 @endsection
 @section('content')
 <div class="dash_page">
     <h1 class="page_title"><i class="fa-solid fa-users"></i> Criar usuario</h1>
-    <form class="page_form" method="post" action="{{route('register-user')}}">
+    <form class="page_form" method="post" action="{{route('register-user')}}" enctype="multipart/form-data">
         @csrf
         @error('any')
             <div class="box-error">
@@ -36,6 +37,18 @@
                 <option value="2">Funcionario</option>
                 <option value="3">Gerente</option>
             </select>
+        </div>
+
+        <div class="input_box">
+            <label>Image:</label>
+            <input onchange="readURL(this);" class="page_input" type="file" name="image" placeholder="Select a Image...">
+            <div class="image_preview">
+                <div class="no_image">
+                    <i class="fa-regular fa-image"></i>
+                    <span>Preview</span>
+                </div>
+                <img src="" alt="">
+            </div>
         </div>
 
         <div class="input_box">

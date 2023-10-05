@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
             'cpf' => 0000,
             'password' => '0000',
             'role' => 1,
+            'image' => 'profile_pic.png'
         ]);
     }
 }

@@ -6,7 +6,7 @@
         @foreach ($users as $user)
             
         <div class="page_list_single">
-            <img src="../assets/profile_pic.png" alt="">
+            <img src="../img/pics/{{$user->image}}" alt="">
             <h1>{{$user['name']}}</h1>
             <p>
             @php

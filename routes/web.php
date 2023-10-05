@@ -7,6 +7,7 @@ use App\Http\Controllers\Dashboard\BankController;
 use App\Http\Controllers\Dashboard\CreateBankAccountController;
 use App\Http\Controllers\Dashboard\FlowController;
 use App\Http\Controllers\Dashboard\HomeController;
+use App\Http\Controllers\Dashboard\InvoicesController;
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,10 +29,10 @@ Route::get('/', function () {
 Route::get("/login", [LoginController::class, "index"])->name("login");
 Route::post("/login", [LoginController::class, "login"])->name("doLogin");
 
-Route::get("/dashboard/register", [RegisterController::class, "index"])->name("register");
-Route::post("/dashboard/register", [RegisterController::class, "register"])->name("register-user");
 Route::group(['middleware' => ['auth']], function() {
     // User management routes
+    Route::get("/dashboard/register", [RegisterController::class, "index"])->name("register");
+    Route::post("/dashboard/register", [RegisterController::class, "register"])->name("register-user");
     Route::get("/dashboard/list-users", [UserController::class, "index"])->name("list-users");
     Route::get("/dashboard/update-user/{id}", [UserController::class, "edit"])->name("edit-user");
     Route::post("/dashboard/update-user/{id}", [UserController::class, "update"])->name("update-user");
@@ -55,4 +56,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get("/dashboard/inOut", [FlowController::class, "list"])->name("inOut");
     Route::get("/dashboard/create_flow", [FlowController::class, "create"])->name("create-flow");
     Route::post("/dashboard/create_flow", [FlowController::class, "register"])->name("register-flow");
+
+    // Rotas para o controle das faturas
+    Route::get("/dashboard/emitir_fatura", [InvoicesController::class, "index"])->name('register-invoice');
+    Route::post("/dashboard/create-invoice", [InvoicesController::class, 'create'])->name('create-invoice');
+    Route::get("/dashboard/rastrear-faturas", [InvoicesController::class, 'track'])->name('track-invoices');
+    Route::get("/dashboard/listar-faturas", [InvoicesController::class, 'manage'])->name('list-invoices');
+    Route::get('/dashboard/delete-invoice/{id}', [InvoicesController::class, 'delete'])->name('delete-invoice');
+    Route::get('/dashboard/edit-invoice/{id}', [])->name('edit-invoice');
 });
