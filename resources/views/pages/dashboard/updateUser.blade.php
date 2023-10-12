@@ -1,4 +1,7 @@
 @extends('layouts.dashboard')
+@section('head')
+<script src="{{getenv('APP_URL')}}/js/cpfInputHandler.js" defer></script>
+@endsection
 @section('content')
 <div class="dash_page">
     <h1 class="page_title"><i class="fa-solid fa-users"></i> Editar usuario: Samuel Milhomens</h1>
@@ -10,7 +13,7 @@
         </div>
         <div class="input_box">
             <label for="name">CPF:</label>
-            <input type="text" name="cpf" class="page_input" value="{{$user['cpf']}}">
+            <input type="text" id="cpfInput" name="cpf" class="page_input" value="{{$user['cpf']}}">
         </div>
         <div class="input_box">
             <label for="name">Email:</label>

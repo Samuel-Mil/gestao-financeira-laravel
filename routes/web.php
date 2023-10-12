@@ -3,12 +3,14 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Dashboard\AnalysisController;
 use App\Http\Controllers\Dashboard\BankController;
 use App\Http\Controllers\Dashboard\CreateBankAccountController;
 use App\Http\Controllers\Dashboard\FlowController;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\InvoicesController;
 use App\Http\Controllers\Dashboard\UserController;
+use App\Models\Invoice;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -64,4 +66,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get("/dashboard/listar-faturas", [InvoicesController::class, 'manage'])->name('list-invoices');
     Route::get('/dashboard/delete-invoice/{id}', [InvoicesController::class, 'delete'])->name('delete-invoice');
     Route::get('/dashboard/edit-invoice/{id}', [])->name('edit-invoice');
+    
+    //Análise de dados
+    Route::get("/dashboard/analise", [AnalysisController::class, "index"])->name("analise");
+
+    // Importar extratos
+    Route::get('/dashboard/importar-faturas', [InvoicesController::class, 'import'])->name('importar');
+    Route::get('/dashboard/download/{id}', [InvoicesController::class, 'download'])->name('download');
+    Route::post('/dashboard/importar-faturas', [InvoicesController::class, 'saveImport'])->name('salvar-fatura');
 });

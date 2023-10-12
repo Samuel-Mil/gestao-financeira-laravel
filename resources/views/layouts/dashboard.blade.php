@@ -37,21 +37,20 @@
                 @if (auth()->user()->role == 1 || auth()->user()->role == 2)
                     <li><a href="{{route('create-flow')}}">Registrar transação</a></li>
                 @endif
-                <li><a href="#">Gerar relatório</a></li>
                 <h3><i class="fa-solid fa-money-bill-trend-up"></i> Faturamento e Faturas</h3>
                 <li><a href="{{route('register-invoice')}}">Emitir fatura</a></li>
                 <li><a href="{{route('track-invoices')}}">Rastrear faturas</a></li>
                 <li><a href="{{route('list-invoices')}}">Gerenciar Faturas</a></li>
                 <h3><i class="fa-solid fa-handshake"></i> Conciliação Bancária</h3>
-                <li><a href="#">Importar extratos</a></li>
-                <li><a href="#">Discrepâncias</a></li>
+                <li><a href="{{route('importar')}}">Importar extratos</a></li>
+                <!--<li><a href="#">Discrepâncias</a></li>-->
                 <h3><i class="fa-solid fa-newspaper"></i> Relatórios e análises</h3>
-                <li><a href="#">Gerar relatório</a></li>
-                <li><a href="#">Análide de dados</a></li>
+                <li><a href="{{route('analise')}}">Análide de dados</a></li>
                 @if (auth()->user()->role == 1)
                     <h3><i class="fa-solid fa-users"></i> Usuarios</h3>
                     <li><a href="{{route('register')}}">Criar usuario</a></li>
                     <li><a href="{{route('list-users')}}">Gerenciar usuarios</a></li>
+                    <li><a href="{{route('list-users')}}" class="mobile">.</a></li>
                 @endif
             </ul>    
         </main>

@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Invoice;
+use App\Models\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class InvoicesController extends Controller
 {
@@ -65,5 +67,48 @@ class InvoicesController extends Controller
         if($invoice){
             return redirect()->route('list-invoices');
         }
+    }
+
+    public function import(){
+        $pdfs = Pdf::all();
+        return view('pages.dashboard.importInvoice', ['pdfs'=> $pdfs]);
+    }
+
+    public function saveImport(Request $request){
+        // Valide o arquivo enviado
+        $request->validate([
+            'name' => 'required|string',
+            'pdf' => 'required|mimes:pdf', 
+        ]);
+
+        
+
+        if ($request->hasFile('pdf')) {
+            $pdf = $request->file('pdf');
+            $fileName = $request->name . '.' . $pdf->getClientOriginalExtension();
+            $pdf->storeAs('pdf', $fileName, 'local');
+            Pdf::create([
+                'name' => $fileName
+            ]);
+            return back()->with('success', 'Arquivo PDF enviado com sucesso.');
+        }
+
+        return back()->with('error', 'Ocorreu um erro ao fazer upload do arquivo.');
+    }
+
+    public function download($id){
+        $pdf = Pdf::find($id);
+
+        if (!$pdf) {
+            return back()->with('error', 'PDF não encontrado.');
+        }
+
+        $pdfPath = storage_path('app/pdf/' . $pdf['name']);
+
+        if (file_exists($pdfPath)) {
+            return response()->file($pdfPath, ['Content-Disposition' => 'attachment']);
+        }
+
+        return back()->with('error', 'Arquivo PDF não encontrado.');
     }
 }
