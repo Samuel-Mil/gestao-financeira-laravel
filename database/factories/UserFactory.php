@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\UserRole;
 use Illuminate\Support\Str;
 
 /**
@@ -17,13 +18,19 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
-        ];
+    return [
+        'name' => fake()->name,
+        'email' => fake()->unique()->safeEmail,
+        'cpf' => fake()->unique()->numerify('###.###.###-##'), // Gera CPF fictício
+        'password' => bcrypt('0000'), // Senha fictícia para exemplo
+        'role' => function () {
+            return UserRole::inRandomOrder()->first()->id;
+        },
+        'image' => 'profile_pic.png', // Nome da imagem padrão
+        'remember_token' => Str::random(10),
+        'created_at' => now(),
+        'updated_at' => now(),
+    ];
     }
 
     /**

@@ -65,7 +65,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get("/dashboard/rastrear-faturas", [InvoicesController::class, 'track'])->name('track-invoices');
     Route::get("/dashboard/listar-faturas", [InvoicesController::class, 'manage'])->name('list-invoices');
     Route::get('/dashboard/delete-invoice/{id}', [InvoicesController::class, 'delete'])->name('delete-invoice');
-    Route::get('/dashboard/edit-invoice/{id}', [])->name('edit-invoice');
+    Route::get('/dashboard/edit-invoice/{id}', [InvoicesController::class, 'edit'])->name('edit-invoice');
+    Route::post('/dashboard/edit-invoice/{id}', [InvoicesController::class, 'update'])->name('update-invoice');
     
     //Análise de dados
     Route::get("/dashboard/analise", [AnalysisController::class, "index"])->name("analise");

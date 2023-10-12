@@ -2,22 +2,19 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Flow;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class UserSeeder extends Seeder
+class FlowSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        
-
-        User::factory()
-            ->count(20) // Defina o número de registros que deseja criar
+        Flow::factory()
+            ->count(100) // Defina o número de registros que deseja criar
             ->create();
     }
 }

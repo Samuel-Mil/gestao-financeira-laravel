@@ -2,22 +2,19 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Invoice;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class UserSeeder extends Seeder
+class InvoiceSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        
-
-        User::factory()
-            ->count(20) // Defina o número de registros que deseja criar
+        Invoice::factory()
+            ->count(40) // Defina o número de faturas que deseja criar
             ->create();
     }
 }

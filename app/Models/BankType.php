@@ -10,6 +10,8 @@ class BankType extends Model
 {
     use HasFactory;
 
+    protected $table = 'bank_account_type';
+
     protected $fillable = [
         'type'
     ];

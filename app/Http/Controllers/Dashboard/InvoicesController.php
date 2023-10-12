@@ -111,4 +111,20 @@ class InvoicesController extends Controller
 
         return back()->with('error', 'Arquivo PDF não encontrado.');
     }
+
+    public function edit(Request $request, $id){
+        $invoice = Invoice::where('id', $id)->first();
+        return view('pages.dashboard.updateInvoice', ['invoice'=>$invoice]);
+    }
+
+    public function update(Request $request, $id){
+        
+
+        $invoice = Invoice::find($id)->update($request->all());
+
+
+        if($invoice){
+            return redirect()->route('list-invoices');
+        }
+    }
 }
