@@ -3,7 +3,18 @@
 <div class="dash_page">
     <h1 class="page_title"><i class="fa-solid fa-users"></i> Editar conta bancaria.</h1>
     <form class="page_form" method="post" action="{{route('update-bank', $bank['id'])}}">
+        
         @csrf
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+        
         <div class="input_box">
             <label for="">Número da Conta:</label>
             <input type="text" name="acc_number" class="page_input" value="{{$bank['number']}}">
@@ -15,7 +26,6 @@
         <div class="input_box">
             <label for="">Tipo da Conta:</label>
             <select name="acc_type" class="page_input" value="{{$bank['type']}}">
-                <option value="0">selecione</option>
                 <option value="1">conta corrente</option>
                 <option value="2">conta poupança</option>
                 <option value="3">conta conjunta</option>
@@ -36,7 +46,6 @@
         <div class="input_box">
             <label for="">Status da Conta:</label>
             <select name="acc_status" class="page_input" value="{{$bank['status']}}">
-                <option value="1">selecione</option>
                 <option value="1">ativa</option>
                 <option value="1">inativa</option>
                 <option value="1">bloqueada</option>

@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Bank;
-use App\Models\Flow;
 use Illuminate\Http\Request;
 
 class BankController extends Controller
@@ -16,9 +15,7 @@ class BankController extends Controller
     }
 
     public function delete(Request $request, $id){
-        Flow::where('entry_account', $id)->delete();
-        Flow::where('outgoing_account', $id)->delete();
-        $bank = Bank::with('cashFlow')->find($id)->first();
+        $bank = Bank::find($id);
         $bank->delete();
         return redirect()->route('list-banks');
     }
@@ -29,32 +26,11 @@ class BankController extends Controller
     }
 
     public function update(Request $request, $id){
-        $data = $request->validate([
-            'acc_number'  => 'numeric|required',
-            'acc_holder'  => 'string|required',
-            'acc_type'    => 'numeric|required',
-            'acc_opening' => 'string|required',
-            'acc_agency'  => 'string|required',
-            'agency_id'   => 'string|required',
-            'acc_status'  => 'numeric|required',
-            'acc_contact' => 'string|required',
-            'acc_notes'   => 'string|required'
-        ]);
-
-        $bank = Bank::find($id)->update([
-            'number'       => $data['acc_number'],
-            'holder_name'  => $data['acc_holder'],
-            'type'         => $data['acc_type'],
-            'opening_date' => date('Y-m-d H:i:s'),
-            'agency'       => $data['acc_agency'],
-            'agency_identification' => $data['agency_id'],
-            'status'       => $data['acc_status'],
-            'info_contact' => $data['acc_contact'],
-            'notes'        => $data['acc_notes']
-        ]);
+        $bank = Bank::find($id);
+        $bank->update($request->all());
 
         if($bank){
-            return redirect()->back();
+            return redirect()->route('list-banks');
         }
     }
 }

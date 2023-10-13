@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('outgoing_account');
             
             $table->foreign('type')->references('id')->on('flow_type');
-            $table->foreign('entry_account')->references('id')->on('bank_account');
+            $table->foreign('entry_account')->references('id')->on('bank_account')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

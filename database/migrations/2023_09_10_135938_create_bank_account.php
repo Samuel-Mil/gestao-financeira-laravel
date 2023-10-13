@@ -22,8 +22,8 @@ return new class extends Migration
             $table->unsignedBigInteger("status");
             $table->text("info_contact");
             $table->text("notes");
-            $table->foreign('type')->references('id')->on('bank_account_type');
-            $table->foreign('status')->references('id')->on('bank_account_status');
+            $table->foreign('type')->references('id')->on('bank_account_type')->onUpdate('cascade');
+            $table->foreign('status')->references('id')->on('bank_account_status')->onUpdate('cascade');
             $table->timestamps();
         });
     }

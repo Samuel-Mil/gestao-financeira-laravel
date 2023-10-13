@@ -25,13 +25,13 @@ class Flow extends Model
         return $this->hasOne(FlowType::class);
     }
 
-    public function outgoingAccount(): BelongsTo
+    public function outgoingAccount(): HasOne
     {
-        return $this->belongsTo(Bank::class, 'outgoing_account');
+        return $this->hasOne(Bank::class, 'outgoing_account');
     }
 
-    public function entryAccount(): BelongsTo
+    public function entryAccount(): HasOne
     {
-        return $this->belongsTo(Bank::class, 'entry_account');
+        return $this->hasOne(Bank::class, 'entry_account');
     }
 }
