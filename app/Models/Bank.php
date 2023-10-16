@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Bank extends Model
@@ -36,8 +35,8 @@ class Bank extends Model
         return $this->hasOne(BankStatus::class);
     }
 
-    public function cashFlow(): HasMany
+    public function cashFlow(): BelongsTo
     {
-        return $this->hasMany(Flow::class);
+        return $this->belongsTo(Flow::class);
     }
 }
