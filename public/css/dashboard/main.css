@@ -295,7 +295,6 @@
 
 .analytics p{
     margin: 10px 0;
-    text-align: center;
 }
 
 .analytics ul{
@@ -305,6 +304,8 @@
 .view-itens{
     border-bottom: 1px solid #444;
     text-align: center;
+    text-align: center;
+
 }
 
 .view-itens ul{
