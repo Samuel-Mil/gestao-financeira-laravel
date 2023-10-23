@@ -20,7 +20,10 @@ class AnalysisController extends Controller
             'transactions'      => Flow::with('outgoingAccount', 'entryAccount')->get(),
             'invoicesCount'     => Invoice::count(),
             'invoices'          => Invoice::all(),
-            'amount'            => Flow::sum('amount')
+            'amount'            => Flow::sum('amount'),
+            'search'            => null
         ]);
     }
+
+    
 }
