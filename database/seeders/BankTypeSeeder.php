@@ -13,15 +13,15 @@ class BankTypeSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('bank_account_type')->insert([
+        DB::table('tipo_conta_bancaria')->insert([
             'type' => 'corrente',
         ]);
 
-        DB::table('bank_account_type')->insert([
+        DB::table('tipo_conta_bancaria')->insert([
             'type' => 'poupança',
         ]);
         
-        DB::table('bank_account_type')->insert([
+        DB::table('tipo_conta_bancaria')->insert([
             'type' => 'conjunta',
         ]);
     }   

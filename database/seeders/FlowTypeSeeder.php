@@ -13,11 +13,11 @@ class FlowTypeSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('flow_type')->insert([
+        DB::table('tipo_fluxo')->insert([
             'type' => 'entrada', 
         ]);
 
-        DB::table('flow_type')->insert([
+        DB::table('tipo_fluxo')->insert([
             'type' => 'saida', 
         ]);
     }

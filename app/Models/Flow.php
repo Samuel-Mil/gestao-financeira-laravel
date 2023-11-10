@@ -11,7 +11,7 @@ class Flow extends Model
 {
     use HasFactory;
 
-    protected $table = "cash_flow";
+    protected $table = "fluxo_caixa";
 
     protected $fillable = [
         'type',

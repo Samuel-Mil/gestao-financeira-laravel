@@ -15,23 +15,23 @@
         @enderror
         <div class="input_box">
             <label for="name">Nome:</label>
-            <input type="text" name="name" class="page_input" placeholder="Sam Sulek">
+            <input type="text" name="name" class="page_input" placeholder="Sam Sulek" required>
         </div>
         <div class="input_box">
             <label for="name">CPF:</label>
-            <input type="text" id="cpfInput" name="cpf" class="page_input" placeholder="00000000000">
+            <input type="text" id="cpfInput" name="cpf" class="page_input" placeholder="00000000000" required>
         </div>
         <div class="input_box">
             <label for="name">Email:</label>
-            <input type="text" name="email" class="page_input" placeholder="sam.sulek@gmail.com">
+            <input type="text" name="email" class="page_input" placeholder="sam.sulek@gmail.com" required>
         </div>
         <div class="input_box">
             <label for="name">Senha:</label>
-            <input type="password" name="password" class="page_input" placeholder="******">
+            <input type="password" name="password" class="page_input" placeholder="******" required>
         </div>
         <div class="input_box">
             <label for="">Cargo:</label>
-            <select name="role" class="page_input">
+            <select name="role" class="page_input" required>
                 <option value="0">selecione</option>
                 <option value="1">Administrador</option>
                 <option value="2">Funcionario</option>
@@ -41,7 +41,7 @@
 
         <div class="input_box">
             <label>Image:</label>
-            <input onchange="readURL(this);" class="page_input" type="file" name="image" placeholder="Select a Image...">
+            <input onchange="readURL(this);" class="page_input" type="file" name="image" placeholder="Select a Image..." required>
             <div class="image_preview">
                 <div class="no_image">
                     <i class="fa-regular fa-image"></i>

@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
             $table->string('cpf')->unique();
             $table->string('password');
             $table->unsignedBigInteger('role');
-            $table->foreign('role')->references('id')->on('users_roles');
+            $table->foreign('role')->references('id')->on('usuario_cargos');
             $table->text("image");
             $table->rememberToken();
             $table->timestamps();
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('usuarios');
     }
 };

@@ -16,12 +16,12 @@
 
         <div class="input_box">
             <label for="name">Nome:</label>
-            <input type="text" name="name" class="page_input" placeholder="Nome...">
+            <input type="text" name="name" class="page_input" placeholder="Nome..." required>
         </div>
         
         <div class="input_box">
             <label>Image:</label>
-            <input onchange="readURL(this);" class="page_input" type="file" name="pdf" placeholder="Select a PDF..." accept=".pdf">
+            <input onchange="readURL(this);" class="page_input" type="file" name="pdf" placeholder="Select a PDF..." accept=".pdf" required>
             
         </div>
 

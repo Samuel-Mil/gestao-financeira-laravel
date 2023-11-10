@@ -10,7 +10,7 @@ class FlowType extends Model
 {
     use HasFactory;
 
-    protected $table = 'flow_type';
+    protected $table = 'tipo_fluxo';
 
     protected $fillable = [
         'type'

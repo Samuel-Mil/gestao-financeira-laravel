@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cash_flow', function (Blueprint $table) {
+        Schema::create('fluxo_caixa', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('type');
             $table->decimal("amount");
             $table->unsignedBigInteger('entry_account');
             $table->unsignedBigInteger('outgoing_account');
             
-            $table->foreign('type')->references('id')->on('flow_type');
-            $table->foreign('entry_account')->references('id')->on('bank_account')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('outgoing_account')->references('id')->on('bank_account')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('type')->references('id')->on('tipo_fluxo');
+            $table->foreign('entry_account')->references('id')->on('conta_bancaria')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('outgoing_account')->references('id')->on('conta_bancaria')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cash_flow');
+        Schema::dropIfExists('fluxo_caixa');
     }
 };

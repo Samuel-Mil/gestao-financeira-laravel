@@ -10,7 +10,7 @@ class BankStatus extends Model
 {
     use HasFactory;
 
-    protected $table = 'bank_account_status';
+    protected $table = 'status_conta_bancaria';
 
     protected $fillable = [
         'status'

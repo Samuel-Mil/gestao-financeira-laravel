@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('flow_type', function (Blueprint $table) {
+        Schema::create('tipo_fluxo', function (Blueprint $table) {
             $table->id();
             $table->string('type');
             $table->timestamps();

@@ -13,20 +13,20 @@ class BankStatusSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('bank_account_status')->insert([
+        DB::table('status_conta_bancaria')->insert([
             'status' => 'ativa',
             
         ]);
 
-        DB::table('bank_account_status')->insert([
+        DB::table('status_conta_bancaria')->insert([
             'status' => 'inativa'
         ]);
 
-        DB::table('bank_account_status')->insert([
+        DB::table('status_conta_bancaria')->insert([
             'status' => 'bloqueada'
         ]);
 
-        DB::table('bank_account_status')->insert([
+        DB::table('status_conta_bancaria')->insert([
             'status' => 'encerrada'
         ]);
     }
