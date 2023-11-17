@@ -18,8 +18,8 @@ class RegisterController extends Controller
     {
         $data = $request->validate([
             'name'     => 'string|required',
-            'email'    => 'string|required|unique:users,email',
-            'cpf'      => 'string|required|unique:users,cpf',
+            'email'    => 'string|required|unique:usuarios,email',
+            'cpf'      => 'string|required|unique:usuarios,cpf',
             'password' => 'string|required',
             'role'     => 'numeric|required',
             'image'    => 'image|required'

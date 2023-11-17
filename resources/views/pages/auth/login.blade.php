@@ -12,7 +12,7 @@
             <img src="../assets/banner.jpg" alt="">
         </div>
         <form action="{{route('doLogin')}}" method="post">
-            
+        https://meet.google.com/jyi-kzyq-adc
             @csrf
             <h1>Login</h1>
             
